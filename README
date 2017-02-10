@@ -1,0 +1,72 @@
+This is your Spray application
+=============================
+
+To run tests
+-------------
+
+sbt clean test
+
+To run
+-------
+
+sbt run
+
+Endpoints
+==========
+
+GET /pets?name=Dutchie
+returns all pets - optional parameter firstName will return pets that match criteria
+
+GET /pet/{id}
+returns pet with requested id
+
+PUT /pet/{id}
+Example Request Payload:
+{
+  "name": {
+    "value": "Dutchie"
+  },
+  "dob": {
+    "value":"2016-01-01"
+  },
+  "notes": "Healthy"
+}
+
+registers or updates pet with requested id
+
+PUT /owner/{petId}
+Example Request Payload:
+{
+  "name": {
+    "firstName": "Sofia",
+    "lastName": "Cole"
+   },
+  "address": {
+    "firstLine": "1 Privet Drive",
+    "town": "Surrey",
+    "postcode": "HP1 P77"
+   },
+  "phoneNumber": {
+    "value":"07834823846"
+  }
+}
+
+updates an owner record to the database for a registered pet
+
+POST /pets
+Example Request Payload:
+{
+  "name": {
+    "value": "Dutchie"
+  },
+  "dob": {
+    "value":"2016-01-01"
+  },
+  "notes": "Healthy"
+}
+
+registers new pet
+
+DELETE /pet/{id}
+
+deletes pet and corresponding owner with requested petId
